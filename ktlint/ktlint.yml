@@ -1,0 +1,16 @@
+disabled_rules:
+  - import-ordering
+  - no-wildcard-imports
+  - max-line-length
+
+editorconfig-overrides:
+  ktlint_standard_back-to-back-comment-spacing:
+    disabled: true
+  ktlint_standard_comment-spacing:
+    disabled: true
+  ktlint_standard_final-newline:
+    disabled: true
+  ktlint_standard_no-trailing-whitespace:
+    disabled: true
+  ktlint_standard_spacing:
+    disabled: true
