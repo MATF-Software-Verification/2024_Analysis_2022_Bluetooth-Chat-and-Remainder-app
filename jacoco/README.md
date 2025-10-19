@@ -1,125 +1,82 @@
 # Jacoco - Code Coverage Analysis
 
-## Opis
-Jacoco je alat za merenje pokrivenosti koda (code coverage) u Java/Kotlin aplikacijama. Omogućava analizu koliki deo koda je pokriven testovima.
+## Description
+Jacoco is a tool for measuring code coverage in Java/Kotlin applications. It allows analysis of how much of the code is covered by tests.
 
-## Instalacija
-Jacoco je već konfigurisan u Gradle build sistemu:
-- Plugin: `id 'jacoco'`
-- Verzija: `0.8.8`
-- Konfiguracija u `app/build.gradle`
+## Installation
+Jacoco is already configured in the Gradle build system
 
-## Korišćenje
+## Usage
 
 ### Windows
 ```bash
-# Unit testovi (default)
+# Unit tests (default)
 .\run_jacoco.bat
 
-# Android testovi (zahtevaju uređaj/emulator)
+# Android tests (requires device/emulator)
 .\run_jacoco.bat --android
 
-# Kombinovani testovi (unit + Android)
+# Combined tests (unit + Android)
 .\run_jacoco.bat --combined
 
-# Pomoć
+# Help
 .\run_jacoco.bat --help
 ```
 
 ### Linux/Mac
 ```bash
-# Unit testovi (default)
+# Unit tests (default)
 chmod +x run_jacoco.sh
 ./run_jacoco.sh
 
-# Android testovi (zahtevaju uređaj/emulator)
+# Android tests (requires device/emulator)
 ./run_jacoco.sh --android
 
-# Kombinovani testovi (unit + Android)
+# Combined tests (unit + Android)
 ./run_jacoco.sh --combined
 
-# Pomoć
+# Help
 ./run_jacoco.sh --help
 ```
 
-### Manualno pokretanje
+### Manual execution
 ```bash
 cd 2022_Bluetooth-Chat-and-Remainder-app
 
-# Unit testovi
+# Unit tests
 ./gradlew clean testDebugUnitTest jacocoTestReport --no-daemon
 
-# Android testovi
+# Android tests
 ./gradlew clean connectedDebugAndroidTest jacocoAndroidTestReport --no-daemon
 
-# Kombinovani testovi
+# Combined tests
 ./gradlew clean testDebugUnitTest connectedDebugAndroidTest jacocoCombinedTestReport --no-daemon
 ```
 
-## Rezultati
-Nakon pokretanja, izveštaji se generišu u:
+## Results
+After execution, reports are generated in:
 
-### Unit testovi
-- **HTML izveštaj**: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
-- **XML izveštaj**: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
+### Unit tests
+- **HTML report**: `app/build/reports/jacoco/jacocoTestReport/html/index.html`
+- **XML report**: `app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml`
 
-### Android testovi
-- **HTML izveštaj**: `app/build/reports/jacoco/jacocoAndroidTestReport/html/index.html`
-- **XML izveštaj**: `app/build/reports/jacoco/jacocoAndroidTestReport/jacocoAndroidTestReport.xml`
+### Android tests
+- **HTML report**: `app/build/reports/jacoco/jacocoAndroidTestReport/html/index.html`
+- **XML report**: `app/build/reports/jacoco/jacocoAndroidTestReport/jacocoAndroidTestReport.xml`
 
-### Kombinovani testovi
-- **HTML izveštaj**: `app/build/reports/jacoco/jacocoCombinedTestReport/html/index.html`
-- **XML izveštaj**: `app/build/reports/jacoco/jacocoCombinedTestReport/jacocoCombinedTestReport.xml`
+### Combined tests
+- **HTML report**: `app/build/reports/jacoco/jacocoCombinedTestReport/html/index.html`
+- **XML report**: `app/build/reports/jacoco/jacocoCombinedTestReport/jacocoCombinedTestReport.xml`
 
-## Konfiguracija
-Jacoco je konfigurisan u `app/build.gradle`:
 
-```gradle
-jacoco {
-    toolVersion = "0.8.8"
-}
+## Metrics
+Jacoco measures the following types of coverage:
+- **Line Coverage**: How much of the code lines are executed
+- **Branch Coverage**: How much of the branches (if/else) are tested
+- **Method Coverage**: How much of the methods are called
+- **Class Coverage**: How much of the classes are tested
 
-task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
-    reports {
-        xml.required = true
-        html.required = true
-        csv.required = false
-    }
-    
-    // Exclude generated classes
-    def fileFilter = [
-        '**/R.class',
-        '**/R$*.class',
-        '**/BuildConfig.*',
-        '**/Manifest*.*',
-        '**/*Test*.*',
-        'android/**/*.*'
-    ]
-    
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-    
-    sourceDirectories.setFrom(files([mainSrc]))
-    classDirectories.setFrom(files([debugTree]))
-    executionData.setFrom(fileTree(dir: buildDir, includes: [
-        'jacoco/testDebugUnitTest.exec',
-        'outputs/code-coverage/connected/*coverage.ec'
-    ]))
-}
-```
 
-## Metrije
-Jacoco meri sledeće tipove pokrivenosti:
-- **Line Coverage**: Koliki deo linija koda je izvršen
-- **Branch Coverage**: Koliki deo grana (if/else) je testiran
-- **Method Coverage**: Koliki deo metoda je pozvan
-- **Class Coverage**: Koliki deo klasa je testiran
-
-## Troubleshooting
-- Ako testovi ne prolaze, proverite da li su svi testovi ispravni
-- Ako nema pokrivenosti, proverite da li su testovi pokrenuti
-- Ako izveštaj nije generisan, proverite da li je `jacocoTestReport` task uspešno završen
-
-## Dodatne informacije
-- [Jacoco dokumentacija](https://www.jacoco.org/jacoco/)
+## Additional Information
+- [Jacoco documentation](https://www.jacoco.org/jacoco/)
 - [Gradle Jacoco plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
