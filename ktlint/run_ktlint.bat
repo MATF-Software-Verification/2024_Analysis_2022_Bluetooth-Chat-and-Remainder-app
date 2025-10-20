@@ -51,7 +51,7 @@ if not exist "%ANDROID_PROJECT_DIR%\gradlew.bat" (
     echo [INFO] Make sure you're running this script from the correct directory
     exit /b 1
 )
-goto :eof
+exit /b 0
 
 :run_check
 echo [INFO] Running ktlint check using Gradle...

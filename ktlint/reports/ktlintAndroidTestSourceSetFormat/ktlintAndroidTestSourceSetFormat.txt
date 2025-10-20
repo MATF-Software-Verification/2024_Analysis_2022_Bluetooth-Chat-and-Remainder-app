@@ -1,0 +1,8 @@
+[31mC:\Users\mmarkovic\Desktop\vs_project\2024_Analysis_2022_Bluetooth-Chat-and-Remainder-app\2022_Bluetooth-Chat-and-Remainder-app\app\src\androidTest\java\com\example\myapplication\[0mExampleInstrumentedTest.kt[31m:[0m1[31m:1:[0m File must end with a newline (\n) [31m(standard:final-newline)[0m
+[31mC:\Users\mmarkovic\Desktop\vs_project\2024_Analysis_2022_Bluetooth-Chat-and-Remainder-app\2022_Bluetooth-Chat-and-Remainder-app\app\src\androidTest\java\com\example\myapplication\[0mExampleInstrumentedTest.kt[31m:[0m3[31m:1:[0m Imports must be ordered in lexicographic order without any empty lines in-between with "java", "javax", "kotlin" and aliases in the end [31m(standard:import-ordering)[0m
+[31mC:\Users\mmarkovic\Desktop\vs_project\2024_Analysis_2022_Bluetooth-Chat-and-Remainder-app\2022_Bluetooth-Chat-and-Remainder-app\app\src\androidTest\java\com\example\myapplication\[0mExampleInstrumentedTest.kt[31m:[0m5[31m:1:[0m Wildcard import [31m(standard:no-wildcard-imports)[0m
+
+Summary error count (descending) by rule:
+  standard:final-newline: 1
+  standard:import-ordering: 1
+  standard:no-wildcard-imports: 1

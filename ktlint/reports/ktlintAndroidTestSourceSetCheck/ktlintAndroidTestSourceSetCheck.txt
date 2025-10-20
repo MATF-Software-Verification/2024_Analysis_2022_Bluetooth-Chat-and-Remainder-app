@@ -1,0 +1,4 @@
+[31mC:\Users\mmarkovic\Desktop\vs_project\2024_Analysis_2022_Bluetooth-Chat-and-Remainder-app\2022_Bluetooth-Chat-and-Remainder-app\app\src\androidTest\java\com\example\myapplication\[0mExampleInstrumentedTest.kt[31m:[0m5[31m:1:[0m Wildcard import [31m(standard:no-wildcard-imports)[0m
+
+Summary error count (descending) by rule:
+  standard:no-wildcard-imports: 1

@@ -1,0 +1,86 @@
+---
+ app/build.gradle                         | 22 ++++++++++++++++++++--
+ build.gradle                             |  7 ++++---
+ gradle/wrapper/gradle-wrapper.properties |  2 +-
+ 3 files changed, 25 insertions(+), 6 deletions(-)
+
+diff --git a/app/build.gradle b/app/build.gradle
+index d390995..2ed5291 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -2,15 +2,17 @@ plugins {
+     id 'com.android.application'
+     id 'org.jetbrains.kotlin.android'
+     id 'com.google.gms.google-services'
++    id 'org.jlleitschuh.gradle.ktlint'
+ }
+ 
+ android {
+-    compileSdk 32
++    compileSdk 34
++    namespace "com.example.myapplication"
+ 
+     defaultConfig {
+         applicationId "com.example.myapplication"
+         minSdk 21
+-        targetSdk 31
++        targetSdk 34
+         versionCode 1
+         versionName "1.0"
+ 
+@@ -35,6 +37,22 @@ android {
+     }
+ }
+ 
++ktlint {
++    version = "0.50.0"
++    debug = true
++    verbose = true
++    android = true
++    outputToConsole = true
++    outputColorName = "RED"
++    ignoreFailures = false
++    enableExperimentalRules = true
++    reporters {
++        reporter "plain"
++        reporter "checkstyle"
++        reporter "html"
++    }
++}
++
+ dependencies {
+ 
+ 
+diff --git a/build.gradle b/build.gradle
+index ad5b19e..9685bd9 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -4,9 +4,10 @@ buildscript {
+     }
+ }// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.1.1' apply false
+-    id 'com.android.library' version '7.1.1' apply false
+-    id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
++    id 'com.android.application' version '8.1.4' apply false
++    id 'com.android.library' version '8.1.4' apply false
++    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
++    id 'org.jlleitschuh.gradle.ktlint' version '11.5.1' apply false
+ }
+ 
+ task clean(type: Delete) {
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+index 33308eb..065f471 100644
+--- a/gradle/wrapper/gradle-wrapper.properties
++++ b/gradle/wrapper/gradle-wrapper.properties
+@@ -1,6 +1,6 @@
+ #Tue Apr 19 15:49:54 CEST 2022
+ distributionBase=GRADLE_USER_HOME
+-distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
+ distributionPath=wrapper/dists
+ zipStorePath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+-- 
+2.40.0.windows.1
+
