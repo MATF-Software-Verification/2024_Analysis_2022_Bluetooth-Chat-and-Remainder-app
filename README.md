@@ -41,12 +41,10 @@ This repository contains a comprehensive analysis of the 2022 Bluetooth Chat and
 - **Documentation**: [jacoco/README.md](jacoco/README.md)
 
 ### 4. Unit Tests
-- **Purpose**: Automated testing framework
-- **Frameworks**: JUnit 4, Mockito, Espresso
-- **Usage**: 
-  - From project root: `./unit-tests/run_unit_tests.sh` or `./unit-tests/run_android_tests.sh`
-  - From unit-tests directory: `cd unit-tests && ./run_unit_tests.sh` or `./run_android_tests.sh`
-- **Documentation**: [unit-tests/README.md](unit-tests/README.md)
+TBD
+
+### 5. UI Tests
+TBD
 
 ## Quick Start
 
@@ -112,25 +110,11 @@ This repository contains a comprehensive analysis of the 2022 Bluetooth Chat and
    ```
 
 4. **Run Tests**:
-   ```bash
-   # From project root
-   ./unit-tests/run_unit_tests.sh
-   
-   # Or from unit-tests directory
-   cd unit-tests && ./run_unit_tests.sh
-   ```
+TBD
 
 ## Analysis Results
 
-### Code Quality Issues Found
-- **Naming Issues**: 8 problems with variable naming conventions
-- **Lateinit Usage**: 25 instances of excessive lateinit usage
-- **Code Style**: 87 style-related issues including long lines, magic numbers, and missing braces
-
-### Test Coverage
-- **Unit Tests**: 1 test (ExampleUnitTest)
-- **Android Tests**: 8 instrumented tests
-- **Coverage Reports**: Available in `app/build/reports/jacoco/`
+TBD
 
 ## Configuration Files
 
@@ -141,7 +125,6 @@ This repository contains a comprehensive analysis of the 2022 Bluetooth Chat and
 
 ## Reports Location
 
-- **ktlint**: Console output
+- **ktlint**: `ktlint/reports`
 - **detekt**: `detekt/build/reports/detekt/detekt.html`
 - **Jacoco**: `app/build/reports/jacoco/`
-- **Tests**: `app/build/reports/tests/`
