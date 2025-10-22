@@ -1,130 +1,88 @@
-# 2024 Analysis - 2022 Bluetooth Chat and Reminder App
+# 2024 Analiza - 2022 Bluetooth Chat and Reminder App
 
-This repository contains a comprehensive analysis of the 2022 Bluetooth Chat and Reminder Android application, including code quality tools, testing frameworks, and documentation.
+Bluetooth chat and reminder app je Android aplikacija razvijena u okviru studentskog projekta na kursu Programske paradigme, na Matematičkom fakultetu, Univerziteta u Beogradu.  
+Aplikacija je namenjena za dopisivanje korišćenjem Bluetootha, a pored toga korisnici imaju
+mogućnost da dodaju i podsetnike za svoje dnevne aktivnosti. Za razvoj je korišćen programski jezik Kotlin u okviru okruženja Android Studio.  
+Cilj analize ovog projekta je da se primenom različitih alata za verifikaciju i testiranje utvrde slabosti sistema, potencijalni bagovi i mogućnosti za unapređenje. Fokus je na proveri stabilnosti i pouzdanosti koda kroz statičku i dinamičku analizu, čime se dobija uvid u ponašanje aplikacije u različitim uslovima.
 
-## Project Structure
+Autor: Marija Marković 1011/2023
 
-```
-2024_Analysis_2022_Bluetooth-Chat-and-Remainder-app/
-├── 2022_Bluetooth-Chat-and-Remainder-app/    # Original Android project
-├── ktlint/                                   # Code style checking
-├── detekt/                                   # Static code analysis
-├── jacoco/                                   # Code coverage analysis
-├── unit-tests/                               # Testing framework
-└── README.md                                 # This file
-```
+## Alati i Analiza
 
-## Tools and Analysis
+### 1. ktlint - Provera stila koda
+- **Svrha**: Primenjuje Kotlin standarde formatiranja koda
+- **Konfiguracija**: `ktlint/ktlint.yml` i `.editorconfig`
+- **Korišćenje**: 
+  `./ktlint/run_ktlint.sh --check` ili `./ktlint/run_ktlint.sh --format`
+- **Dokumentacija**: [ktlint/README.md](ktlint/README.md)
 
-### 1. ktlint - Code Style Checker
-- **Purpose**: Enforces Kotlin coding standards and formatting
-- **Configuration**: `ktlint/ktlint.yml` and `.editorconfig`
-- **Usage**: 
-  - From project root: `./ktlint/run_ktlint.sh --check` or `./ktlint/run_ktlint.sh --format`
-  - From ktlint directory: `cd ktlint && ./run_ktlint.sh --check` or `./run_ktlint.sh --format`
-- **Documentation**: [ktlint/README.md](ktlint/README.md)
+### 2. detekt - Statička analiza Koda
+- **Svrha**: Identifikuje probleme sa kvalitetom
+koda, kompleksnošću, čitljivošću.
+- **Konfiguracija**: `config/detekt/detekt.yml`
+- **Korišćenje**: 
+   `./detekt/run_detekt.sh` ili `cd 2022_Bluetooth-Chat-and-Remainder-app && ./gradlew detekt`
+- **Dokumentacija**: [detekt/README.md](detekt/README.md)
 
-### 2. detekt - Static Code Analysis
-- **Purpose**: Finds code problems, code smells, and style issues
-- **Configuration**: `config/detekt/detekt.yml`
-- **Usage**: 
-  - From project root: `./detekt/run_detekt.sh` or `cd 2022_Bluetooth-Chat-and-Remainder-app && ./gradlew detekt`
-  - From detekt directory: `cd detekt && bash run_detekt.sh`
-- **Documentation**: [detekt/README.md](detekt/README.md)
+### 3. Jacoco - Pokrivenost Koda
+- **Svrha**: Meri pokrivenost koda za unit i Android testove
+- **Konfiguracija**: `app/build.gradle`
+- **Korišćenje**: 
+  `./jacoco/run_jacoco.sh --unit` ili `./jacoco/run_jacoco.sh --android`
+- **Dokumentacija**: [jacoco/README.md](jacoco/README.md)
 
-### 3. Jacoco - Code Coverage
-- **Purpose**: Measures code coverage for unit and Android tests
-- **Configuration**: `app/build.gradle`
-- **Usage**: 
-  - From project root: `./jacoco/run_jacoco.sh --unit` or `./jacoco/run_jacoco.sh --android`
-  - From jacoco directory: `cd jacoco && ./run_jacoco.sh --unit` or `./run_jacoco.sh --android`
-- **Documentation**: [jacoco/README.md](jacoco/README.md)
+### 4. Testiranje
+**Važna napomena**: Struktura projekta onemogućava kvalitetno testiranje. U dokumentu Analysis_summary.pdf navedeni su problemi kao i sugestije kako se oni mogu otkloniti kako bi se poboljšao kvalitet projekta, a uz to i njegova testabilnost.
 
-### 4. Unit Tests
-TBD
+## Pokretanje alata
 
-### 5. UI Tests
-TBD
-
-## Quick Start
-
-### Prerequisites
+### Preduslovi
 - Android Studio
 - Gradle
 - Android SDK
 - Java 8+
 
-### Running Analysis Tools
+### Pokretanje Alata za Analizu
 
-#### Option 1: Using Gradle directly
-1. **Code Style Check**:
+#### Opcija 1: Direktno korišćenje Gradle-a
+1. **Provera Stilova Koda**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew ktlintCheck
    ```
 
-2. **Static Analysis**:
+2. **Statička Analiza**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew detekt
    ```
 
-3. **Code Coverage**:
+3. **Pokrivenost Koda**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
-   ./gradlew testDebugUnitTest jacocoTestReport
+   ./gradlew jacocoAndroidTestReport
    ```
 
-4. **Run Tests**:
+4. **Pokretanje Testova**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
-   ./gradlew testDebugUnitTest connectedDebugAndroidTest
+   ./gradlew connectedDebugAndroidTest
    ```
 
-#### Option 2: Using provided scripts
-1. **Code Style Check**:
-   ```bash
-   # From project root
-   ./ktlint/run_ktlint.sh --check
-   
-   # Or from ktlint directory
-   cd ktlint && ./run_ktlint.sh --check
-   ```
+## Rezultati Analize
 
-2. **Static Analysis**:
-   ```bash
-   # From project root
-   ./detekt/run_detekt.sh
-   
-   # Or from detekt directory
-   cd detekt && bash run_detekt.sh
-   ```
+Detaljni rezultati analize se nalaze u odgovarajućim direktorijumima:
+- **ktlint**: `ktlint/reports/` - Izveštaji o stilovima koda
+- **detekt**: `detekt/build/reports/detekt/` 
+- Izveštaji o problemima u kodu:  
+Detaljniji rezultati analize mogu se naći u [Analysis_summary](Analysis_summary.pdf)
 
-3. **Code Coverage**:
-   ```bash
-   # From project root
-   ./jacoco/run_jacoco.sh --unit
-   
-   # Or from jacoco directory
-   cd jacoco && ./run_jacoco.sh --unit
-   ```
 
-4. **Run Tests**:
-TBD
+## Zaključak
 
-## Analysis Results
-
-TBD
-
-## Configuration Files
-
-- **ktlint**: `ktlint/ktlint.yml`, `.editorconfig`
-- **detekt**: `config/detekt/detekt.yml`
-- **Jacoco**: `app/build.gradle` (jacoco configuration)
-- **Gradle**: `build.gradle`, `app/build.gradle`
-
-## Reports Location
-
-- **ktlint**: `ktlint/reports`
-- **detekt**: `detekt/build/reports/detekt/detekt.html`
-- **Jacoco**: `app/build/reports/jacoco/`
+Analiza projekta je pokazala da aplikacija ima značajne nedostatke u arhitekturi, kvalitetu koda i rukovanju resursima. Nedostatak centralizovane logike, loša separacija slojeva, nepotpuna validacija unosa, problemi sa curenjem memorije i nedostatak lokalnog čuvanja
+podataka ukazuju na potencijalne rizike po stabilnost i pouzdanost aplikacije.  
+Poseban problem predstavlja testiranje: zbog čvrste povezanosti logike sa Android framework-om, neadekvatnog integrisanja autentikacije i direktnog korišćenja Bluetooth funkcionalnosti,
+praktično je nemoguće automatizovano testirati ključne delove aplikacije.  
+Da bi testiranje postalo izvodljivo, potrebno je uvesti jasnu arhitekturu, dependency injection, interfejse za testabilne komponente i mehanizme za izolaciju resursa.  
+Na osnovu svega navedenog zaključujemo da trenutna implementacija ozbiljno otežava održavanje, proširivanje i proveru ispravnosti aplikacije, te zahteva značajne izmene kako bi se omogućilo stabilno i pouzdano korišćenje, kao i efikasno testiranje.

@@ -1,23 +1,23 @@
-# Detekt - Static Code Analysis for Kotlin
+# Detekt - Statička analiza koda
 
-## Description
-Detekt is a static code analyzer for the Kotlin language. It finds code problems, code smells, and recommends improvements to coding styles.
+## Opis
+Detekt je statički analizator koda za Kotlin programski jezik. Pronalazi probleme u kodu, code smell-ove i preporučuje poboljšanja stilova kodiranja.
 
-## Installation
-Detekt is already configured in the Gradle build system.
+## Instalacija
+Detekt je već konfigurisan u Gradle build sistemu.
 
-## Usage
+## Korišćenje
 
-### Option 1: Using provided script (Recommended)
+### Opcija 1: Korišćenje priložene skripte (preporučeno)
 ```bash
-# From project root
+# Iz korena projekta
 ./detekt/run_detekt.sh
 
-# Or from detekt directory
+# Ili iz detekt direktorijuma
 cd detekt && bash run_detekt.sh
 ```
 
-### Option 2: Using Gradle directly
+### Opcija 2: Direktno korišćenje Gradle-a
 #### Windows
 ```bash
 cd 2022_Bluetooth-Chat-and-Remainder-app
@@ -30,23 +30,21 @@ cd 2022_Bluetooth-Chat-and-Remainder-app
 ./gradlew detekt --no-daemon
 ```
 
-## Results
-After execution, reports are generated in:
-- **HTML report**: `detekt/build/reports/detekt/detekt.html`
-- Console output with detailed problem descriptions
+## Rezultati
+Nakon izvršavanja, izveštaji se generišu u:
+- **HTML izveštaj**: `detekt/build/reports/detekt/detekt.html`
+- Konzolni izlaz sa detaljnim opisima problema
 
+Konfiguracija se nalazi u `config/detekt/detekt.yml`.
 
-Configuration is located in `config/detekt/detekt.yml`.
+## Konfiguraciona Pravila
+Detekt koristi sledeća pravila:
+- **potential-bugs**: Potencijalne greške u kodu
+- **naming**: Konvencije imenovanja
+- **style**: Stilovi pisanja koda
+- **complexity**: Kompleksnost koda
+- **performance**: Problemi sa performansama
 
-## Configuration Rules
-Detekt uses the following rules:
-- **potential-bugs**: Potential code errors
-- **naming**: Naming conventions
-- **style**: Code writing styles
-- **complexity**: Code complexity
-- **performance**: Performance issues
-
-## Additional Information
-- [Detekt documentation](https://detekt.github.io/detekt/)
+## Dodatne Informacije
+- [Detekt dokumentacija](https://detekt.github.io/detekt/)
 - [Detekt GitHub](https://github.com/detekt/detekt)
-- [Detekt rules](https://detekt.github.io/detekt/rules.html)

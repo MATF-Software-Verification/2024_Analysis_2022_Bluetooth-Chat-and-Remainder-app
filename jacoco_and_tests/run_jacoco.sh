@@ -49,13 +49,13 @@ case $TEST_TYPE in
     "unit")
         echo "Running unit tests only..."
         ./gradlew clean testDebugUnitTest jacocoTestReport --no-daemon
-        REPORT_PATH="app/build/reports/jacoco/jacocoTestReport/html/index.html"
+        REPORT_PATH="app/build/reports/jacocoTestReport/html/index.html"
         ;;
     "android")
         echo "Running Android tests only..."
         echo "Note: Requires connected Android device or emulator"
         ./gradlew clean connectedDebugAndroidTest jacocoAndroidTestReport --no-daemon
-        REPORT_PATH="app/build/reports/jacoco/jacocoAndroidTestReport/html/index.html"
+        REPORT_PATH="app/build/reports/jacocoAndroidTestReport/html/index.html"
         ;;
     "combined")
         echo "Running combined tests (unit + Android)..."

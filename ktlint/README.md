@@ -1,73 +1,66 @@
-# ktlint - Kotlin Code Style Checker
+# ktlint - Provera Stila Kotlin Koda
 
-## What is ktlint?
+## Šta je ktlint?
 
-ktlint is a Kotlin linter and formatter that enforces Kotlin coding standards. It helps maintain consistent code style across the project.
+ktlint je Kotlin linter i formater koji primenjuje Kotlin standarde kodiranja. Pomaže u održavanju konzistentnog stila koda kroz ceo projekat.
 
-## Files in this directory
+## Fajlovi u ovom direktorijumu
 
-- `ktlint.yml` - ktlint configuration file with disabled rules and editorconfig overrides
-- `.editorconfig` - Editor configuration for consistent code formatting
-- `run_ktlint.sh` - Shell script to run ktlint (Linux/Mac)
-- `run_ktlint.bat` - Batch script to run ktlint (Windows)
+- `ktlint.yml` - ktlint konfiguracioni fajl
+- `.editorconfig` - Konfiguracija editora za konzistentno formatiranje koda
+- `run_ktlint.sh` - Shell skripta za pokretanje ktlint-a (Linux/Mac)
+- `run_ktlint.bat` - Batch skripta za pokretanje ktlint-a (Windows)
 
-## Usage
+## Korišćenje
 
-### Using Scripts (Recommended)
+### Korišćenje skripti (preporučeno)
 
-The provided scripts use the Gradle wrapper internally, so you don't need to install ktlint separately.
+Priložene skripte koriste Gradle wrapper interno, tako da ne morate da instalirate ktlint odvojeno.
 
 #### Linux/Mac
 ```bash
-# Check code style
+# Provera stila koda
 ./ktlint/run_ktlint.sh --check
 
-# Auto-fix code style
+# Automatsko ispravljanje stila koda
 ./ktlint/run_ktlint.sh --format
 ```
 
 #### Windows
 ```cmd
-# Check code style
+# Provera stila koda
 ktlint\run_ktlint.bat --check
 
-# Auto-fix code style
+# Automatsko ispravljanje stila koda
 ktlint\run_ktlint.bat --format
 ```
 
+### Korišćenje Gradle-a
 
-### Using Gradle
-
-The project is configured to use ktlint as a Gradle plugin. You can run:
+Projekat je konfigurisan da koristi ktlint kao Gradle plugin. Možete pokrenuti:
 
 ```bash
-# Check code style
+# Provera stila koda
 ./gradlew ktlintCheck
 
-# Auto-fix code style issues
+# Automatsko ispravljanje problema sa stilom koda
 ./gradlew ktlintFormat
 ```
-## Configuration
 
-The ktlint configuration is defined in `ktlint.yml` and includes:
-
-- **Disabled rules**: Some rules are disabled to match project preferences
-- **Editorconfig overrides**: Custom settings for specific ktlint rules
-
-## IDE Integration
+## IDE Integracija
 
 ### IntelliJ IDEA / Android Studio
 
-1. Install the ktlint plugin from the marketplace
-2. Configure the plugin to use the project's ktlint configuration
-3. Enable "Reformat code on save" for automatic formatting
+1. Instalirajte ktlint plugin iz marketplace-a
+2. Konfigurišite plugin da koristi ktlint konfiguraciju projekta
+3. Omogućite "Reformat code on save" za automatsko formatiranje
 
 ### VS Code
 
-1. Install the ktlint extension
-2. Configure it to use the project's ktlint configuration file
+1. Instalirajte ktlint ekstenziju
+2. Konfigurišite je da koristi ktlint konfiguracioni fajl projekta
 
-## More Information
+## Dodatne Informacije
 
 - [ktlint GitHub](https://github.com/pinterest/ktlint)
 - [ktlint Gradle Plugin](https://github.com/JLLeitschuh/ktlint-gradle)
