@@ -1,4 +1,4 @@
-# Jacoco - Analiza Pokrivenosti Koda
+# Jacoco - Analiza pokrivenosti koda
 
 ## Opis
 Jacoco je alat za merenje pokrivenosti koda u Java/Kotlin aplikacijama. Omogućava analizu koliko je koda pokriveno testovima.
