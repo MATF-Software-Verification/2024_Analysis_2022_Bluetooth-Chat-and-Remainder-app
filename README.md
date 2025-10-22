@@ -7,7 +7,7 @@ Cilj analize ovog projekta je da se primenom različitih alata za verifikaciju i
 
 Autor: Marija Marković 1011/2023
 
-## Alati i Analiza
+## Alati i analiza
 
 ### 1. ktlint - Provera stila koda
 - **Svrha**: Primenjuje Kotlin standarde formatiranja koda
@@ -16,7 +16,7 @@ Autor: Marija Marković 1011/2023
   `./ktlint/run_ktlint.sh --check` ili `./ktlint/run_ktlint.sh --format`
 - **Dokumentacija**: [ktlint/README.md](ktlint/README.md)
 
-### 2. detekt - Statička analiza Koda
+### 2. detekt - Statička analiza koda
 - **Svrha**: Identifikuje probleme sa kvalitetom
 koda, kompleksnošću, čitljivošću.
 - **Konfiguracija**: `config/detekt/detekt.yml`
@@ -24,7 +24,7 @@ koda, kompleksnošću, čitljivošću.
    `./detekt/run_detekt.sh` ili `cd 2022_Bluetooth-Chat-and-Remainder-app && ./gradlew detekt`
 - **Dokumentacija**: [detekt/README.md](detekt/README.md)
 
-### 3. Jacoco - Pokrivenost Koda
+### 3. Jacoco - Pokrivenost koda
 - **Svrha**: Meri pokrivenost koda za unit i Android testove
 - **Konfiguracija**: `app/build.gradle`
 - **Korišćenje**: 
@@ -42,34 +42,34 @@ koda, kompleksnošću, čitljivošću.
 - Android SDK
 - Java 8+
 
-### Pokretanje Alata za Analizu
+### Pokretanje alata za analizu
 
 #### Opcija 1: Direktno korišćenje Gradle-a
-1. **Provera Stilova Koda**:
+1. **Provera stilova koda**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew ktlintCheck
    ```
 
-2. **Statička Analiza**:
+2. **Statička analiza**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew detekt
    ```
 
-3. **Pokrivenost Koda**:
+3. **Pokrivenost koda**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew jacocoAndroidTestReport
    ```
 
-4. **Pokretanje Testova**:
+4. **Pokretanje testova**:
    ```bash
    cd 2022_Bluetooth-Chat-and-Remainder-app
    ./gradlew connectedDebugAndroidTest
    ```
 
-## Rezultati Analize
+## Rezultati analize
 
 Detaljni rezultati analize se nalaze u odgovarajućim direktorijumima:
 - **ktlint**: `ktlint/reports/` - Izveštaji o stilovima koda
